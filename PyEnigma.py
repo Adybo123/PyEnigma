@@ -160,6 +160,15 @@ def detectEnigma():
         enigType = "None - Custom setup"
     return enigType
 
+def correctSetupCheck():
+    #Check arrays
+    if (len(Rotors)!=len(RotorPosition)):
+        print("Rotor array length isn't the same as the Rotor positions array length.")
+        print("You must set a start position for all rotors.")
+        sys.exit(0)
+    else:
+        print("Settings OK!")
+
 if __name__ == "__main__":
     #Unnessesary extravagance
     print("""
@@ -175,6 +184,10 @@ Type 'Help' for commands
     """)
 
     print("Detected enigma type: " + detectEnigma())
+    print("")
+    # Check for correct setup
+    print("Detecting settings...")
+    correctSetupCheck()
     print("")
     #Main progam loop and exit code
     global enigRun
